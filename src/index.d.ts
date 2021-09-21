@@ -2,10 +2,10 @@
  * Part of the following typing and documentation is from material-ui/src/Snackbar/Snackbar.d.ts
  */
 import * as React from 'react';
-import { SnackbarClassKey } from '@material-ui/core/Snackbar';
-import { ClickAwayListenerProps } from '@material-ui/core/ClickAwayListener';
-import { TransitionProps } from '@material-ui/core/transitions/transition';
-import { StandardProps } from '@material-ui/core';
+import { SnackbarClassKey } from '@mui/material/Snackbar';
+import { ClickAwayListenerProps } from '@mui/material/ClickAwayListener';
+import { TransitionProps } from '@mui/material/transitions/transition';
+import { StandardProps } from '@mui/material';
 
 export type RequiredBy<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>
 export type ClassNameMap<ClassKey extends string = string> = Record<ClassKey, string>;
@@ -19,7 +19,6 @@ export type CloseReason = 'timeout' | 'clickaway' | 'maxsnack' | 'instructed';
 export type SnackbarMessage = string | React.ReactNode;
 export type SnackbarAction = React.ReactNode | ((key: SnackbarKey) => React.ReactNode);
 export type SnackbarContentCallback = React.ReactNode | ((key: SnackbarKey, message: SnackbarMessage) => React.ReactNode);
-
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TransitionCloseHandler = (event: React.SyntheticEvent<any> | null, reason: CloseReason, key?: SnackbarKey) => void;
@@ -258,6 +257,7 @@ export interface SnackbarProviderProps extends SharedProps {
 
 export class SnackbarProvider extends React.Component<SnackbarProviderProps> {
     enqueueSnackbar: ProviderContext['enqueueSnackbar'];
+
     closeSnackbar: ProviderContext['closeSnackbar'];
 }
 
